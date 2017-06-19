@@ -2,7 +2,7 @@
   "name": "not-enough-anime",
   "version": "0.1.0",
   "private": true,
-  "main": "./src/main.js",
+  "main": "./src/main-process/main.js",
   "homepage": "./",
   "dependencies": {
     "@types/jest": "^19.2.4",
@@ -15,7 +15,10 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-promise-middleware": "4.2.1",
+    "redux-thunk": "^2.2.0",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
     "app-root-path": "^2.0.1",
@@ -26,7 +29,7 @@
     "concurrently": "^3.4.0",
     "css-loader": "0.28.1",
     "dotenv": "4.0.0",
-    "electron": "^1.6.10",
+    "electron": "^1.6.11",
     "electron-packager": "^8.7.1",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.11.1",
@@ -59,7 +62,7 @@
   "scripts": {
     "start": "concurrently \"yarn react-start\" \"wait-on http://localhost:3000/ && yarn electron-start\"",
     "build": "yarn react-build && yarn electron-build",
-    "electron-start": "tsc ./app/src/main.ts && electron ./app/src/main.js",
+    "electron-start": "tsc ./app/src/main-process/main.ts && electron ./app/src/main-process/main.js",
     "react-start": "node scripts/start.js",
     "react-build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"

@@ -1,1 +1,0 @@
-export { MyAnimeList } from './myanimelist';
