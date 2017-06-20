@@ -10,7 +10,7 @@ function createWindow() {
         mainWindow = null;
         if (process.platform !== 'darwin') { app.quit(); }
     });
-
+    
     window.load();
     mainWindow = window;
 }
