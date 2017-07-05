@@ -1,25 +1,31 @@
-import * as Actions from './action-types';
-import MyAnimeList from '../api/myanimelist';
+import {
+    LOGIN,
+    LOGIN_PENDING,
+    LOGIN_FULFILLED,
+    LOGIN_REJECTED,
+    GET_ANIME_LIST
+} from '../constants';
+import { MyAnimeList } from '../api';
 
 export interface LoginAction {
-    type: Actions.Login,
+    type: LOGIN,
     payload: {
         service: MyAnimeList,
         promise: Promise<string>
     }
 }
 
-export type LoginAsyncActions = Actions.LoginPending | Actions.LoginFulfilled | Actions.LoginRejected;
+export type LoginAsyncActions = LOGIN_PENDING | LOGIN_FULFILLED | LOGIN_REJECTED;
 
 export interface GetAnimeListAction {
-    type: Actions.GetAnimeList
+    type: GET_ANIME_LIST
 }
 
 export function login(username: string, password: string): LoginAction {
     const service = new MyAnimeList();
 
     return {
-        type: Actions.LOGIN,
+        type: LOGIN,
         payload: {
             service,
             promise: service.verifyLogin(username, password)
@@ -29,6 +35,6 @@ export function login(username: string, password: string): LoginAction {
 
 export function getAnimeList(): GetAnimeListAction {
     return {
-        type: Actions.GET_ANIME_LIST
+        type: GET_ANIME_LIST
     }
 }

@@ -59,7 +59,7 @@
     "electron-start": "tsc ./app/src/main-process/main.ts && electron ./app/src/main-process/main.js",
     "react-start": "node scripts/start.js",
     "react-build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "jest --verbose --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [
